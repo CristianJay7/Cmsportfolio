@@ -33,16 +33,16 @@
             data.forEach(project => {
                 const projectHTML = `
                 
-                    <div class="col-sm-4">
-                     <div class="card h-100 border border-light shadow-0 mb-3" style="width: 18rem;">
-                            <img src="${project.image_path}" class="card-img-top" alt="${project.title}">
-                                <div class="card-body">
-                                    <h5 class="card-title">${project.title}</h5>
-                                    <p class="card-text">${project.category}</p>
-                                    
-                                </div>
-                            </div>
-                        </div>
+                <div class="col-md-4 col-12 d-flex justify-content-center">
+    <div class="card h-100 border border-light shadow-0 mb-3" style="width: 18rem;">
+        <img src="${project.image_path}" class="card-img-top" alt="${project.title}">
+        <div class="card-body">
+            <h5 class="card-title">${project.title}</h5>
+            <p class="card-text">${project.category}</p>
+        </div>
+    </div>
+</div>
+
                    
          
                    
