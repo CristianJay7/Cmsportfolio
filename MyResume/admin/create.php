@@ -1,5 +1,12 @@
 <?php
-include ('includes/config.php');
+session_start();
+
+// Check if the user is logged in
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    // Redirect to the login page
+    header("location: ../login.php");
+    exit;
+}include ('includes/config.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'];

@@ -13,8 +13,13 @@ if(isset($_POST['submit'])){
     $count = mysqli_stmt_num_rows($stmt);
 
     if ($count == 1) {
-        $loginMessage = "Login successfully.";
-        header("Location: admin/sample.php?loginMessage=" . urlencode($loginMessage));
+        // Start session
+        session_start();
+        $_SESSION['loggedin'] = true;
+        $_SESSION['username'] = $username;
+
+        // Redirect to the admin dashboard
+        header("Location: admin/sample.php");
         exit();
     } else {
         echo '<script>
@@ -23,11 +28,11 @@ if(isset($_POST['submit'])){
               </script>';
         exit();  // Make sure to exit after the JavaScript redirect
     }
-    
 
     mysqli_stmt_close($stmt);
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

@@ -1,4 +1,12 @@
-  <?php
+<?php
+session_start();
+
+// Check if the user is logged in
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    // Redirect to the login page
+    header("location: ../login.php");
+    exit;
+}
 
 ?>
 <!DOCTYPE html>
@@ -223,8 +231,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
-        <a href="../index.php?id=' . $row["id"] . '" class="btn btn-primary">Logout</a>
-      </div>
+        <a href="logout.php" class="btn btn-primary">Logout</a>      
     </div>
   </div>
 </div>

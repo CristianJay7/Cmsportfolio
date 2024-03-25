@@ -1,7 +1,14 @@
 <?php
-include 'includes/config.php'; // Include your database connection
+session_start();
 
-// Fetch all work experience records from the database
+// Check if the user is logged in
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    // Redirect to the login page
+    header("location: ../login.php");
+    exit;
+}
+include 'includes/config.php';
+
 $sql = "SELECT * FROM exp";
 $result = $con->query($sql);
 
