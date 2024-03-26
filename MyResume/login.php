@@ -25,13 +25,12 @@ if(isset($_POST['submit'])){
         echo '<script>
                 alert("Username or Password is incorrect!");
                 window.location.href = "login.php";
-              </script>';
-        exit();  // Make sure to exit after the JavaScript redirect
+                </script>';
+        exit(); 
     }
-
-    mysqli_stmt_close($stmt);
 }
 ?>
+
 
 
 <!DOCTYPE html>
